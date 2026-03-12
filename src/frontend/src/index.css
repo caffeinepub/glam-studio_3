@@ -12,6 +12,23 @@
   font-display: swap;
 }
 
+/* ── Instrument Serif italic (script accent) ── */
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
 /* ── General Sans (body) ── */
 @font-face {
   font-family: "General Sans";
@@ -21,64 +38,56 @@
   font-display: swap;
 }
 
-/* ── Instrument Serif (accent headings) ── */
-@font-face {
-  font-family: "Instrument Serif";
-  src: url("/assets/fonts/InstrumentSerif-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 @layer base {
   :root {
-    /* Dark luxury palette — OKLCH raw L C H */
-    --background: 0.12 0 0;
-    --foreground: 0.95 0 0;
+    /* Light luxury palette — OKLCH raw L C H */
+    /* Tuned to match logo: champagne gold "GLAM" + neon rose-pink "Studio" */
+    --background: 0.99 0 0;
+    --foreground: 0.13 0 0;
 
-    --card: 0.16 0 0;
-    --card-foreground: 0.95 0 0;
+    --card: 0.97 0.005 350;
+    --card-foreground: 0.13 0 0;
 
-    --popover: 0.16 0 0;
-    --popover-foreground: 0.95 0 0;
+    --popover: 0.99 0 0;
+    --popover-foreground: 0.13 0 0;
 
-    /* Hot pink primary */
-    --primary: 0.62 0.22 350;
-    --primary-foreground: 0.98 0 0;
+    /* Vibrant neon-rose pink (logo "Studio" script) */
+    --primary: 0.52 0.22 352;
+    --primary-foreground: 0.99 0 0;
 
-    /* Champagne gold secondary */
-    --secondary: 0.77 0.12 80;
-    --secondary-foreground: 0.1 0 0;
+    /* Warm champagne gold (logo "GLAM" text) */
+    --secondary: 0.55 0.13 76;
+    --secondary-foreground: 0.99 0 0;
 
-    --muted: 0.22 0 0;
-    --muted-foreground: 0.65 0 0;
+    --muted: 0.94 0.005 350;
+    --muted-foreground: 0.42 0 0;
 
-    --accent: 0.77 0.12 80;
-    --accent-foreground: 0.1 0 0;
+    --accent: 0.93 0.01 80;
+    --accent-foreground: 0.13 0 0;
 
     --destructive: 0.55 0.22 25;
-    --destructive-foreground: 0.98 0 0;
+    --destructive-foreground: 0.99 0 0;
 
-    --border: 0.25 0 0;
-    --input: 0.22 0 0;
-    --ring: 0.62 0.22 350;
+    --border: 0.88 0.005 350;
+    --input: 0.92 0.005 350;
+    --ring: 0.52 0.22 352;
 
     --radius: 0.5rem;
 
-    --chart-1: 0.62 0.22 350;
-    --chart-2: 0.77 0.12 80;
+    --chart-1: 0.52 0.22 352;
+    --chart-2: 0.55 0.13 76;
     --chart-3: 0.55 0.18 310;
     --chart-4: 0.65 0.15 60;
-    --chart-5: 0.7 0.1 200;
+    --chart-5: 0.5 0.1 200;
 
-    --sidebar: 0.14 0 0;
-    --sidebar-foreground: 0.95 0 0;
-    --sidebar-primary: 0.62 0.22 350;
-    --sidebar-primary-foreground: 0.98 0 0;
-    --sidebar-accent: 0.77 0.12 80;
+    --sidebar: 0.96 0.005 350;
+    --sidebar-foreground: 0.13 0 0;
+    --sidebar-primary: 0.52 0.22 352;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.55 0.13 76;
     --sidebar-accent-foreground: 0.1 0 0;
-    --sidebar-border: 0.22 0 0;
-    --sidebar-ring: 0.62 0.22 350;
+    --sidebar-border: 0.88 0.005 350;
+    --sidebar-ring: 0.52 0.22 352;
   }
 }
 
@@ -107,52 +116,124 @@
 }
 
 @layer utilities {
+  /* Script / cursive accent — mirrors the "Studio" script in the logo */
+  .font-script {
+    font-family: "Instrument Serif", Georgia, serif;
+    font-style: italic;
+  }
+
+  /* AA-contrast safe brand colors on white background */
   .text-gold {
-    color: oklch(0.77 0.12 80);
+    color: oklch(0.44 0.13 76);
   }
   .text-pink {
-    color: oklch(0.62 0.22 350);
+    color: oklch(0.48 0.22 352);
   }
   .bg-gold {
-    background-color: oklch(0.77 0.12 80);
+    background-color: oklch(0.55 0.13 76);
   }
   .bg-pink-glow {
-    background-color: oklch(0.62 0.22 350);
+    background-color: oklch(0.52 0.22 352);
   }
   .border-gold {
-    border-color: oklch(0.77 0.12 80);
+    border-color: oklch(0.55 0.13 76);
   }
   .border-pink {
-    border-color: oklch(0.62 0.22 350);
+    border-color: oklch(0.52 0.22 352);
   }
   .shadow-pink-glow {
-    box-shadow: 0 0 24px oklch(0.62 0.22 350 / 0.4);
+    box-shadow: 0 4px 24px oklch(0.52 0.22 352 / 0.35);
   }
   .shadow-gold-glow {
-    box-shadow: 0 0 24px oklch(0.77 0.12 80 / 0.35);
+    box-shadow: 0 4px 24px oklch(0.55 0.13 76 / 0.35);
   }
   .gradient-pink-gold {
     background: linear-gradient(
       135deg,
-      oklch(0.62 0.22 350),
-      oklch(0.77 0.12 80)
+      oklch(0.52 0.22 352),
+      oklch(0.55 0.13 76)
     );
   }
   .gradient-text {
     background: linear-gradient(
       135deg,
-      oklch(0.75 0.2 350),
-      oklch(0.85 0.14 80)
+      oklch(0.46 0.22 352),
+      oklch(0.44 0.13 76)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  /* Service card — lift + border glow on hover */
   .service-card-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s
+      ease;
+    border-color: transparent;
   }
   .service-card-hover:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px oklch(0.62 0.22 350 / 0.35);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px oklch(0.52 0.22 352 / 0.18);
+    border-color: oklch(0.52 0.22 352 / 0.4);
   }
+
+  /* Active tab gradient — used via JS className toggle since Tailwind data-[] variants
+     don't apply custom CSS class bodies. Attach .tab-active to TabsTrigger via shadcn's
+     data attribute approach in the component className prop. */
+  .tab-active-state {
+    background: linear-gradient(
+      135deg,
+      oklch(0.52 0.22 352),
+      oklch(0.55 0.13 76)
+    ) !important;
+    color: white !important;
+    box-shadow: 0 4px 20px oklch(0.52 0.22 352 / 0.35) !important;
+  }
+
+  /* Button hover scale */
+  .btn-brand {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  }
+  .btn-brand:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 28px oklch(0.52 0.22 352 / 0.4);
+  }
+  .btn-brand:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Card lift hover */
+  .card-hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s
+      ease;
+  }
+  .card-hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: oklch(0.52 0.22 352 / 0.3);
+  }
+}
+
+/* Gold/pink SVG fill utility */
+.fill-gold {
+  fill: oklch(0.44 0.13 76);
+}
+.fill-pink {
+  fill: oklch(0.48 0.22 352);
+}
+
+/* Pricing tab \u2014 active state using direct CSS selector since Tailwind data-[] variants
+     cannot apply custom CSS class bodies */
+.pricing-tab {
+  color: oklch(0.42 0 0);
+  background: transparent;
+}
+.pricing-tab:hover:not([data-state="active"]) {
+  background: oklch(0.91 0.012 350);
+  color: oklch(0.48 0.22 352);
+}
+.pricing-tab[data-state="active"] {
+  background: linear-gradient(135deg, oklch(0.52 0.22 352), oklch(0.55 0.13 76)) !important;
+  color: white !important;
+  box-shadow: 0 4px 20px oklch(0.52 0.22 352 / 0.35) !important;
 }
