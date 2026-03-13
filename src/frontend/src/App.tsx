@@ -794,47 +794,120 @@ function CTABanner() {
   return (
     <section
       id="book"
-      className="py-20 px-4 relative overflow-hidden gradient-pink-gold"
+      className="relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, oklch(0.65 0.28 350) 0%, oklch(0.72 0.20 20) 40%, oklch(0.82 0.12 85) 100%)",
+      }}
     >
+      {/* Wave divider at top */}
       <div
-        className="absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl"
-        style={{ background: "rgba(255,255,255,0.12)" }}
+        className="absolute top-0 left-0 w-full overflow-hidden leading-none"
+        style={{ height: "60px" }}
+      >
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 1440 60"
+          preserveAspectRatio="none"
+          className="w-full h-full"
+          style={{ display: "block" }}
+        >
+          <path d="M0,0 C360,60 1080,0 1440,60 L1440,0 L0,0 Z" fill="white" />
+        </svg>
+      </div>
+
+      {/* Decorative glow orbs */}
+      <div
+        className="absolute top-10 left-10 w-72 h-72 rounded-full blur-3xl pointer-events-none"
+        style={{ background: "rgba(255,255,255,0.10)" }}
       />
       <div
-        className="absolute -bottom-20 -right-20 w-64 h-64 rounded-full blur-3xl"
-        style={{ background: "rgba(255,255,255,0.12)" }}
+        className="absolute bottom-10 right-10 w-80 h-80 rounded-full blur-3xl pointer-events-none"
+        style={{ background: "rgba(201,168,76,0.18)" }}
+      />
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-40 rounded-full blur-3xl pointer-events-none"
+        style={{ background: "rgba(255,255,255,0.07)" }}
       />
 
-      <div className="relative z-10 max-w-3xl mx-auto text-center">
+      <div className="relative z-10 max-w-4xl mx-auto text-center px-6 pt-20 pb-16">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl text-white mb-4">
-            Ready to Look &amp; Feel Your Best?
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 mb-5 px-5 py-2 rounded-full border border-white/40 bg-white/15 backdrop-blur-sm text-white text-sm font-semibold tracking-widest uppercase">
+            <Sparkles size={14} className="text-yellow-200" />
+            Book Your Appointment
+            <Sparkles size={14} className="text-yellow-200" />
+          </div>
+
+          {/* Main heading */}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-3 leading-tight drop-shadow-lg">
+            Ready to Look &amp; Feel
           </h2>
-          <p className="text-white/85 text-lg mb-10">
-            Book your appointment today — walk-ins welcome
+          <p
+            className="text-4xl sm:text-5xl md:text-6xl mb-6 leading-tight drop-shadow-lg"
+            style={{
+              fontFamily: "'Dancing Script', cursive",
+              color: "#fff9e6",
+              textShadow: "0 2px 16px rgba(0,0,0,0.18)",
+            }}
+          >
+            Your Absolute Best?
           </p>
 
+          {/* Sub-line */}
+          <p className="text-white/90 text-lg sm:text-xl mb-8 font-light tracking-wide">
+            Pamper yourself at Erith's favourite beauty lounge
+          </p>
+
+          {/* Info badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            {[
+              { icon: "✔", text: "Walk-ins Welcome" },
+              { icon: "📅", text: "Open 7 Days" },
+              { icon: "📍", text: "337 Bexley Rd, Erith" },
+            ].map((badge) => (
+              <span
+                key={badge.text}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/20 border border-white/30 text-white text-sm font-medium backdrop-blur-sm"
+              >
+                <span>{badge.icon}</span> {badge.text}
+              </span>
+            ))}
+          </div>
+
+          {/* Ornamental divider */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="h-px w-16 bg-white/40" />
+            <Sparkles size={16} className="text-yellow-200 opacity-80" />
+            <div className="h-px w-16 bg-white/40" />
+          </div>
+
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="https://wa.me/447000000000"
               data-ocid="cta.whatsapp_button"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white text-pink font-semibold text-base transition-all shadow-lg hover:scale-105 hover:shadow-xl active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 rounded-full font-bold text-base transition-all shadow-xl hover:scale-105 hover:shadow-2xl active:scale-95"
+              style={{ background: "white", color: "#16a34a" }}
             >
-              <SiWhatsapp size={18} /> WhatsApp Us
+              <SiWhatsapp size={20} />
+              WhatsApp Us
             </a>
             <a
               href="tel:+447000000000"
               data-ocid="cta.call_button"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white/20 border-2 border-white text-white font-semibold text-base transition-all hover:bg-white/30 hover:scale-105 active:scale-95"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-9 py-4 rounded-full font-bold text-base border-2 border-white text-white transition-all hover:bg-white hover:text-pink-600 hover:scale-105 hover:shadow-2xl active:scale-95"
+              style={{ backdropFilter: "blur(8px)" }}
             >
-              <Phone size={16} /> Call Now
+              <Phone size={18} />
+              Call Now
             </a>
           </div>
         </motion.div>
